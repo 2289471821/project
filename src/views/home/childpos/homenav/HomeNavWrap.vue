@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="border-bottom: 1px solid #fff;">
     <div class="nav-display" @click="iClick">
       <i class="image-icon" :class="{arrow: isRotate}"></i>
     </div>
@@ -94,6 +94,8 @@
     background-color: #f2f2f2;
     padding-top: 20px;
     flex-wrap: wrap;
+    position: absolute;
+    z-index: 2;
   }
   .title {
     height: 26px;

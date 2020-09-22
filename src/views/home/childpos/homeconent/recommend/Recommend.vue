@@ -1,20 +1,21 @@
 <template>
   <div>
-    <!-- <swiper v-for="item in swipers" :key="item.id">
-      <swiper-item></swiper-item>
-    </swiper> -->
+    <recommend-swiper :banners="swipers"></recommend-swiper>
+    <recommend-multicell></recommend-multicell>
+
   </div>
 </template>
 
 <script>
-  import { Swiper, SwiperItem } from '@/components/common/swiper/index'
+  import RecommendSwiper from './childpos/RecommendSwiper'
+  import RecommendMulticell from './childpos/RecommendMulticell'
   import { getSwiperdata } from '@/network/home'
 
   export default {
     name: 'Recommend',
     components: {
-      Swiper,
-      SwiperItem
+      RecommendSwiper,
+      RecommendMulticell
     },
     data() {
       return {
@@ -23,7 +24,6 @@
     },
     created() {
       getSwiperdata().then(res => {
-        console.log(res.data);
         this.swipers = res.data
       }).catch(err => {
         console.log(err);
