@@ -27,7 +27,7 @@
   .home-nav-item {
     color: rgb(116, 116, 116);
     font-size: 14px;
-    padding: 0 12px;
+    padding: 0 14px;
     display: inline-block;
   }
   .home-nav-item span {
