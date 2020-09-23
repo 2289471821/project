@@ -25,7 +25,7 @@
 
 <style scoped>
   input {
-    width: 270px;
+    width: 100%;
     padding: 7px 0 7px 30px;
     border-radius: 5px;
     border: 0 solid #000;

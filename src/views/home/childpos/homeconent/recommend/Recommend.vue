@@ -2,6 +2,7 @@
   <div>
     <recommend-swiper :banners="swipers"></recommend-swiper>
     <recommend-multicell/>
+    <recommend-multicell-two/>
     <recommend-line/>
     <recommend-adver/>
     <recommend-line/>
@@ -41,6 +42,7 @@
 <script>
   import RecommendSwiper from './childpos/RecommendSwiper'
   import RecommendMulticell from './childpos/RecommendMulticell'
+  import RecommendMulticellTwo from './childpos/RecommendMulticellTwo'
   import RecommendLine from './childpos/RecommendLine'
   import RecommendAdver from './childpos/RecommendAdver'
   import RecommendPhone from './childpos/RecommendPhone'
@@ -50,6 +52,7 @@
   import RecommendDevice from './childpos/RecommendDevice'
   import RecommendSmart from './childpos/RecommendSmart'
   import RecommendOther from './childpos/RecommendOther'
+  
   import { getSwiperdata, getPhonedata, getTvdata, getNotebookdata, getDevicedata, getSmartdata, getOtherdata } from '@/network/home'
 
   export default {
@@ -57,6 +60,7 @@
     components: {
       RecommendSwiper,
       RecommendMulticell,
+      RecommendMulticellTwo,
       RecommendLine,
       RecommendAdver,
       RecommendPhone,
@@ -78,7 +82,7 @@
         other: []
       }
     },
-    created() {
+    mounted() {
       getSwiperdata().then(res => {
         this.swipers = res.data
       }).catch(err => {

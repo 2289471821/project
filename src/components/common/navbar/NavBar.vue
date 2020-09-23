@@ -27,7 +27,7 @@
     background-color: #f2f2f2;
   }
   .left, .right {
-    width: 60px;
+    width: 15%;
     margin: auto 0;
   }
   .left img, .right img {

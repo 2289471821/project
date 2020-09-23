@@ -56,8 +56,6 @@
   }
   .smart-right {
     width: 50%;
-    display: inline-block;
-    position: absolute;
     padding: 40px 0 0 20px;
   }
   .smart-name {
@@ -88,5 +86,14 @@
     width: 100%;
     text-align: center;
     padding: 20px 0;
+  }
+  .smart-item {
+    display: flex;
+  }
+  .smart-content li:nth-of-type(2) .smart-left {
+    order: 2;
+  }
+  .smart-content li:nth-of-type(2) .smart-right {
+    order: -1;
   }
 </style>
