@@ -1,34 +1,34 @@
 <template>
   <div class="multi-cell">
     <div class="items">
-      <img src="~@/assets/img/recommend/1.png" alt="">
+      <img src="~@/assets/img/recommend/multi/1.png" alt="">
     </div>
     <div class="items">
-      <img src="~@/assets/img/recommend/2.webp" alt="">
+      <img src="~@/assets/img/recommend/multi/2.webp" alt="">
     </div>
     <div class="items">
-      <img src="~@/assets/img/recommend/3.webp" alt="">
+      <img src="~@/assets/img/recommend/multi/3.webp" alt="">
     </div>
     <div class="items">
-      <img src="~@/assets/img/recommend/4.webp" alt="">
+      <img src="~@/assets/img/recommend/multi/4.webp" alt="">
     </div>
     <div class="items">
-      <img src="~@/assets/img/recommend/5.webp" alt="">
+      <img src="~@/assets/img/recommend/multi/5.webp" alt="">
     </div>
     <div class="items">
-      <img src="~@/assets/img/recommend/6.webp" alt="">
+      <img src="~@/assets/img/recommend/multi/6.webp" alt="">
     </div>
     <div class="items">
-      <img src="~@/assets/img/recommend/7.png" alt="">
+      <img src="~@/assets/img/recommend/multi/7.png" alt="">
     </div>
     <div class="items">
-      <img src="~@/assets/img/recommend/8.png" alt="">
+      <img src="~@/assets/img/recommend/multi/8.png" alt="">
     </div>
     <div class="items">
-      <img src="~@/assets/img/recommend/9.webp" alt="">
+      <img src="~@/assets/img/recommend/multi/9.webp" alt="">
     </div>
     <div class="items">
-      <img src="~@/assets/img/recommend/10.png" alt="">
+      <img src="~@/assets/img/recommend/multi/10.png" alt="">
     </div>
   </div>
 </template>

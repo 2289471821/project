@@ -1,8 +1,10 @@
 <template>
   <div id="home">
-    <home-nav-bar></home-nav-bar>
-    <home-nav-wrap></home-nav-wrap>
-    <router-view></router-view>
+    <header class="header-bar">
+      <home-nav-bar />
+      <home-nav-wrap />
+    </header>
+    <router-view class="home-content"></router-view>
   </div>
 </template>
 
@@ -20,5 +22,18 @@
 </script>
 
 <style scoped>
-  
+  .header-bar {
+    position: fixed;
+    top: -1px;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    -webkit-box-shadow: 0 2px 4px -1px rgba(0,0,0,.2);
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2);
+    background: #f2f2f2;
+  }
+  .home-content {
+    margin-top: 71px;
+    margin-bottom: 50px;
+  }
 </style>
