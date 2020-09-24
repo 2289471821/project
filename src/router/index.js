@@ -16,12 +16,10 @@ const Category = () => import('@/views/category/Category')
 const Planet = () => import('@/views/planet/Planet')
 const Cart = () => import('@/views/cart/Cart')
 const Profile = () => import('@/views/profile/Profile')
+const Detail = () => import('@/views/detail/Detail')
 
 const routes = [
-  {
-    path: '',
-    redirect: '/home'
-  },
+  { path: '', redirect: '/home' },
   {
     path: '/home',
     component: Home,
@@ -36,22 +34,11 @@ const routes = [
       { path: 'life', component: Life },
     ]
   },
-  {
-    path: '/category',
-    component: Category
-  },
-  {
-    path: '/planet',
-    component: Planet
-  },
-  {
-    path: '/cart',
-    component: Cart
-  },
-  {
-    path: '/profile',
-    component: Profile
-  }
+  { path: '/category', component: Category },
+  { path: '/planet', component: Planet },
+  { path: '/cart', component: Cart },
+  { path: '/profile', component: Profile },
+  { path: '/detail', component: Detail }
 ]
 
 const router = new VueRouter({

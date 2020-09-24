@@ -5,7 +5,7 @@
     </div>
     <div class="smart-content">
       <ul>
-        <li v-for="(items, index) in smartdata" :key="index" class="smart-item">
+        <li v-for="(items, index) in smartdata" :key="index" class="smart-item" @click="itemClick">
           <div class="smart-left">
             <img :src="items.simple_img" alt="">
           </div>
@@ -37,6 +37,11 @@
         }else{
           return
         }        
+      }
+    },
+    methods: {
+      itemClick() {
+        this.$router.push('/detail')
       }
     }
   }

@@ -5,7 +5,7 @@
     </div>
     <div class="device-content">
       <ul>
-        <li v-for="(items, index) in devicedata" :key="index" class="device-item">
+        <li v-for="(items, index) in devicedata" :key="index" class="device-item" @click="itemClick">
           <div style="position: relative;">
             <div class="device-hot">
               <img :src="items.hot" alt="">
@@ -21,7 +21,7 @@
         </li>
       </ul>
     </div>
-    <div class="device-footer">更多米家电视产品 ></div>
+    <div class="device-footer">更多米家家电产品 ></div>
   </div>
 </template>
 
@@ -38,6 +38,11 @@
         }else{
           return
         }        
+      }
+    },
+    methods: {
+      itemClick() {
+        this.$router.push('/detail')
       }
     }
   }

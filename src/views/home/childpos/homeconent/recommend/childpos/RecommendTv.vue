@@ -5,7 +5,7 @@
     </div>
     <div class="tv-content">
       <ul>
-        <li v-for="(items, index) in tvdata" :key="index" class="tv-item">
+        <li v-for="(items, index) in tvdata" :key="index" class="tv-item" @click="itemClick">
           <div style="position: relative;">
             <div class="tv-hot">
               <img :src="items.hot" alt="">
@@ -39,6 +39,11 @@
         }else{
           return
         }        
+      }
+    },
+    methods: {
+      itemClick() {
+        this.$router.push('/detail')
       }
     }
   }

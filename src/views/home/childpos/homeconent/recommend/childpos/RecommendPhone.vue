@@ -5,7 +5,7 @@
     </div>
     <div class="phone-content">
       <ul>
-        <li v-for="(items, index) in phonedata" :key="index" class="phone-item">
+        <li v-for="(items, index) in phonedata" :key="index" class="phone-item" @click="itemClick">
           <div>
             <img :src="items.simple_img" alt="">
           </div>
@@ -36,6 +36,17 @@
         }else{
           return
         }        
+      }
+    },
+    methods: {
+      itemClick() {
+        this.$router.push({
+          path: '/detail',
+          query: {
+            type: 'phone',
+            id: 1
+          }
+        })
       }
     }
   }

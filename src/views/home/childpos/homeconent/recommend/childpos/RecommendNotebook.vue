@@ -5,7 +5,7 @@
     </div>
     <div class="notebook-content">
       <ul>
-        <li v-for="(items, index) in notebookdata" :key="index" class="notebook-item">
+        <li v-for="(items, index) in notebookdata" :key="index" class="notebook-item" @click="itemClick">
           <div>
             <img :src="items.simple_img" alt="">
           </div>
@@ -36,6 +36,11 @@
         }else{
           return
         }        
+      }
+    },
+    methods: {
+      itemClick() {
+        this.$router.push('/detail')
       }
     }
   }

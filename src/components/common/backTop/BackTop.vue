@@ -1,7 +1,7 @@
 <template>
   <transition name="el-fade-in">
     <div class="page-up" @click="scrollToTop" v-show="toTopShow">
-      
+
     </div>
   </transition>
 </template>
@@ -62,12 +62,12 @@
       }
     },
     mounted() {
-      this.$nextTick(function () {
-          window.addEventListener('scroll', this.handleScroll,true);
+      this.$nextTick(() => {
+        window.addEventListener('scroll', this.handleScroll, true);
       });
     },
     destroyed() {
-      window.addEventListener('scroll', this.handleScroll,true);
+      window.addEventListener('scroll', this.handleScroll, true);
     }
   }
 </script>

@@ -4,24 +4,21 @@
       <home-nav-bar />
       <home-nav-wrap />
     </header>
-    <div class="content-container">
+    <keep-alive>
       <router-view/>
-      <back-top/>
-    </div>
+    </keep-alive>
   </div>
 </template>
 
 <script>
   import HomeNavBar from './childpos/homenav/HomeNavBar'
   import HomeNavWrap from './childpos/homenav/HomeNavWrap'
-  import BackTop from '@/components/common/backTop/BackTop'
 
   export default {
     name: 'Home',
     components: {
       HomeNavBar,
       HomeNavWrap,
-      BackTop
     }
   }
 </script>
@@ -41,13 +38,5 @@
     padding: 71px 0 49px;
     height: 100vh;
     position: relative;
-  }
-  .content-container {
-    overflow: scroll;
-    position: absolute;
-    top: 71px;
-    bottom: 49px;
-    left: 0;
-    right: 0;
   }
 </style>

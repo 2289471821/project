@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content-container">
     <recommend-swiper :banners="swipers"></recommend-swiper>
     <recommend-multicell/>
     <recommend-multicell-two/>
@@ -36,6 +36,7 @@
     <recommend-banner>
       <img src="~@/assets/img/recommend/banners/mi_footer.png" alt="">
     </recommend-banner>
+    <back-top/>
   </div>
 </template>
 
@@ -52,6 +53,7 @@
   import RecommendDevice from './childpos/RecommendDevice'
   import RecommendSmart from './childpos/RecommendSmart'
   import RecommendOther from './childpos/RecommendOther'
+  import BackTop from '@/components/common/backTop/BackTop'
   
   import { getSwiperdata, getPhonedata, getTvdata, getNotebookdata, getDevicedata, getSmartdata, getOtherdata } from '@/network/home'
 
@@ -69,7 +71,8 @@
       RecommendNotebook,
       RecommendDevice,
       RecommendSmart,
-      RecommendOther
+      RecommendOther,
+      BackTop
     },
     data() {
       return {
@@ -123,4 +126,12 @@
 </script>
 
 <style scoped>
+  .content-container {
+    overflow: scroll;
+    position: absolute;
+    top: 71px;
+    bottom: 49px;
+    left: 0;
+    right: 0;
+  }
 </style>
