@@ -1,6 +1,6 @@
 <template>
   <div class="detail content-container">
-    <detail-nav-bar :isToggle="isShow" :toggleClick="toggleClick"/>
+    <detail-nav-bar/>
     <detail-swiper :carousel="detailed_img"/>
     <detail-content 
       :new_price="new_price" 
@@ -10,7 +10,7 @@
       :detailed_info_items="detailed_info_items"/>
     <detail-property :property="property"/>
     <recommend-line/>
-    
+    <detail-option/>
     <div>12</div>
     <div>12</div>
     <div>12</div>
@@ -77,6 +77,11 @@
     <div>13</div>
     <div>13</div>
     <div>13</div>
+    <ul>
+      <li v-for="(item, index) in $store.state.cartList" :key="index">
+        {{item}}
+      </li>
+    </ul>
     <div>13</div>
     <div>13</div>
     <div>13</div>
@@ -91,9 +96,10 @@
     <div>13</div>
     <div>13</div>
     <div>13</div>
-    <detail-tab-bar/>
+    <detail-tab-bar @addCart="addToCart"/>
     <back-top/>
-    <detail-share :isHandover="isShow" :handoverClick="handoverClick"/>
+    <detail-choose :spec="spec" :name="name"/>
+    <detail-share/>
   </div>
 </template>
 
@@ -106,6 +112,8 @@
   import DetailContent from './childpos/DetailContent'
   import DetailProperty from './childpos/DetailProperty'
   import RecommendLine from '@/views/home/childpos/homeconent/recommend/childpos/RecommendLine'
+  import DetailChoose from './childpos/DetailChoose'
+  import DetailOption from './childpos/DetailOption'
 
   import { getDetaildata } from '@/network/detail'
 
@@ -119,11 +127,12 @@
       DetailSwiper,
       DetailContent,
       DetailProperty,
-      RecommendLine
+      RecommendLine,
+      DetailChoose,
+      DetailOption
     },
     data() {
       return {
-        isShow: true,
         genre: null,
         id: null,
         name: null,
@@ -140,11 +149,15 @@
       }
     },
     methods: {
-      handoverClick(value1) {
-        this.isShow = value1
-      },
-      toggleClick(value2) {
-        this.isShow = value2
+      addToCart() {
+        const product = {}
+        product.image = this.simple_img;
+        product.name = this.name;
+        product.price = this.new_price;
+        product.genre = this.genre;
+        product.id = this.id;
+
+        this.$store.commit('addCart', product);
       }
     },
     created() {
@@ -161,7 +174,7 @@
         this.simple_img = res.data.simple_img
         this.detailed_img = JSON.parse(res.data.detailed_img).swiper
         this.property = JSON.parse(res.data.property).property
-        this.spec = res.data.spec
+        this.spec = JSON.parse(res.data.spec)
         this.recommend = res.data.recommend
       }).catch(error => {
         console.log(error);

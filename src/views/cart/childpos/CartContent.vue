@@ -1,0 +1,13 @@
+<template>
+  
+</template>
+
+<script>
+  export default {
+    name: 'CartContent'
+  }
+</script>
+
+<style scoped>
+
+</style>

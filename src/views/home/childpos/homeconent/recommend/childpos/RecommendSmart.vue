@@ -41,7 +41,13 @@
     },
     methods: {
       itemClick() {
-        this.$router.push('/detail')
+        this.$router.push({
+          path: '/detail',
+          query: {
+            type: 'intel',
+            id: 1
+          }
+        })
       }
     }
   }

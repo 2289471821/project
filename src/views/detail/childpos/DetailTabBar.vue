@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="detail-cart">
-      <div>
+      <div @click="addToCart">
         <span>加入购物车</span>
       </div>
     </div>
@@ -31,6 +31,9 @@
       },
       cartClick() {
         this.$router.push('/cart')
+      },
+      addToCart() {
+        this.$emit('addCart')
       }
     }
   }

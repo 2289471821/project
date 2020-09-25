@@ -42,7 +42,13 @@
     },
     methods: {
       itemClick() {
-        this.$router.push('/detail')
+        this.$router.push({
+          path: '/detail',
+          query: {
+            type: 'device',
+            id: 1
+          }
+        })
       }
     }
   }

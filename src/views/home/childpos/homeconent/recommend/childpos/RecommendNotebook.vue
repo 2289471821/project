@@ -40,7 +40,13 @@
     },
     methods: {
       itemClick() {
-        this.$router.push('/detail')
+        this.$router.push({
+          path: '/detail',
+          query: {
+            type: 'book',
+            id: 2
+          }
+        })
       }
     }
   }

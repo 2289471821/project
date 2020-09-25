@@ -1,22 +1,17 @@
 <template>
-  <nav-bar>
-    <div slot="left">
-      <img src="~@/assets/img/navbar/left_arrows.svg" alt="">
-    </div>
-    <div slot="center">购物车</div>
-    <div slot="right">
-      <img src="~@/assets/img/navbar/search.png" alt="">
-    </div>
-  </nav-bar>
+  <div>
+    <cart-nav-bar/>
+    
+  </div>
 </template>
 
 <script>
-  import NavBar from '@/components/common/navbar/NavBar'
+  import CartNavBar from './childpos/CartNavBar'
 
   export default {
     name: 'Cart',
     components: {
-      NavBar
+      CartNavBar
     }
   }
 </script>

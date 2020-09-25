@@ -1,6 +1,6 @@
 <template>
   <nav-bar>
-    <div slot="left">
+    <div slot="left" @click="$router.go(-1)">
       <img src="~@/assets/img/navbar/left_arrows.svg" alt="">
     </div>
     <div slot="center" class="detail-items">
@@ -21,18 +21,9 @@
     components: {
       NavBar
     },
-    props: {
-      isToggle: Boolean
-    },
-    data() {
-      return {
-        isHandover: this.isToggle
-      }
-    },
     methods: {
       handoverClick() {
-        this.isHandover = !this.isHandover
-        this.$emit('toggleClick', this.isHandover)
+        this.$store.commit('changeShareshow');
       }
     }
   }

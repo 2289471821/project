@@ -43,7 +43,13 @@
     },
     methods: {
       itemClick() {
-        this.$router.push('/detail')
+        this.$router.push({
+          path: '/detail',
+          query: {
+            type: 'tv',
+            id: 1
+          }
+        })
       }
     }
   }
