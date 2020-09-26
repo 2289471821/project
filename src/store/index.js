@@ -27,8 +27,25 @@ const store = new Vuex.Store({
         oldProduct.count += 1;
       }else {
         payload.count = 1;
+        payload.checked = true;
         state.cartList.push(payload);
       }
+    },
+    add(state, index) {
+      state.cartList[index].count++
+    },
+    sub(state, index) {
+      if(state.cartList[index].count <= 1) {
+        state.cartList[index].count = 1
+      }else {
+        state.cartList[index].count--
+      }
+    },
+    remove(state, index) {
+      state.cartList.splice(index, 1);
+    },
+    checked(state, index) {
+      state.cartList[index].checked = !state.cartList[index].checked;
     }
   },
   actions: {

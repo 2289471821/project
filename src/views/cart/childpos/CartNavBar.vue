@@ -1,6 +1,6 @@
 <template>
   <nav-bar>
-    <div slot="left">
+    <div slot="left" @click="$router.go(-1)">
       <img src="~@/assets/img/navbar/left_arrows.svg" alt="">
     </div>
     <div slot="center">购物车</div>
@@ -22,5 +22,10 @@
 </script>
 
 <style scoped>
-
+  .nav-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
 </style>

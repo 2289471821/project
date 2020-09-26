@@ -77,11 +77,6 @@
     <div>13</div>
     <div>13</div>
     <div>13</div>
-    <ul>
-      <li v-for="(item, index) in $store.state.cartList" :key="index">
-        {{item}}
-      </li>
-    </ul>
     <div>13</div>
     <div>13</div>
     <div>13</div>

@@ -12,6 +12,7 @@
       <div class="detail-item" @click="cartClick">
         <div><img src="~@/assets\img\detail\cart.png" alt=""></div>
         <span>购物车</span>
+        <!-- <em class="bubble">{{$store.state.cartList.length}}</em> -->
       </div>
     </div>
     <div class="detail-cart">
