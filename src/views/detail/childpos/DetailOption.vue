@@ -6,7 +6,7 @@
           <span>已选</span>
         </div>
         <div class="item-text">
-          <div>小米10 Pro 8GB+256GB 星空蓝</div>
+          <div>{{name}}</div>
           <div>
             <img src="~@/assets/img/profile/right_arrows.png" alt="">
           </div>
@@ -30,6 +30,9 @@
 <script>
   export default {
     name: 'DetailOption',
+    props: {
+      name: String
+    },
     methods: {
       optionClick() {
         this.$store.commit('changeProductshow');
@@ -66,8 +69,8 @@
     border-bottom: 1px solid rgba(0,0,0,.05);
   }
   .item-text img {
-    width: 18px;
-    height: 18px;
+    width: 15px;
+    height: 15px;
     margin-right: 10px;
   }
 </style>

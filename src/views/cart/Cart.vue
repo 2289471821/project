@@ -2,6 +2,9 @@
   <div class="content-container">
     <cart-nav-bar/>
     <cart-content/>
+    <recommend-banner>
+      <img src="~@/assets/img/cart/enjoy.jpg" alt="">
+    </recommend-banner>
 
     <back-top/>
   </div>
@@ -10,6 +13,7 @@
 <script>
   import CartNavBar from './childpos/CartNavBar'
   import CartContent from './childpos/CartContent'
+  import RecommendBanner from '@/views/home/childpos/homeconent/recommend/childpos/RecommendBanner'
   import BackTop from '@/components/common/backTop/BackTop'
 
   export default {
@@ -17,6 +21,7 @@
     components: {
       CartNavBar,
       CartContent,
+      RecommendBanner,
       BackTop
     }
   }

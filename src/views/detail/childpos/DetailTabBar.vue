@@ -12,7 +12,7 @@
       <div class="detail-item" @click="cartClick">
         <div><img src="~@/assets\img\detail\cart.png" alt=""></div>
         <span>购物车</span>
-        <!-- <em class="bubble">{{$store.state.cartList.length}}</em> -->
+        <em class="bubble" v-show="$store.state.cartList.length">{{totalNumber}}</em>
       </div>
     </div>
     <div class="detail-cart">
@@ -26,6 +26,15 @@
 <script>
   export default {
     name: 'DetailTabBar',
+    computed: {
+      totalNumber() {
+        return this.$store.state.cartList.filter(item => {
+          return item.checked
+        }).reduce((preValue, item) => {
+          return preValue + item.count
+        }, 0)
+      }
+    },
     methods: {
       homeClick() {
         this.$router.push('/')
@@ -82,5 +91,19 @@
     color: #fff;
     font-weight: 600;
     font-size: 14px;
+  }
+  .bubble {
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    position: absolute;
+    top: 5px;
+    left: 32%;
+    transform: translate3d(6px,-20%,0);
+    background: linear-gradient(45deg,#ff7d00,#ff5934);
+    color: #fff;
+    border-radius: 20px;
+    text-align: center;
+    overflow: hidden;
   }
 </style>

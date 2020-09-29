@@ -26,8 +26,12 @@
               </div>
             </div>
           </div>
+          <recommend-line/>
         </li>
       </ul>
+      <div class="point">
+        <p>温馨提示：产品是否购买成功，以最终下单为准，请尽快结算</p>
+      </div>
     </div>
     <div class="noitems" v-else>
       <span>购物车还是空的</span>
@@ -41,14 +45,19 @@
         <span>元</span>
       </div>
       <div class="flex shopping">继续购物</div>
-      <div class="flex balance">去结算</div>
+      <div class="flex balance" @click="settlement">去结算</div>
     </div>
   </div>
 </template>
 
 <script>
+  import RecommendLine from '@/views/home/childpos/homeconent/recommend/childpos/RecommendLine'
+
   export default {
     name: 'CartContent',
+    components: {
+      RecommendLine
+    },
     filters: {
       getSymbol(value) {
         return parseInt(value) + '元'
@@ -82,6 +91,9 @@
       },
       remove(index) {
         this.$store.commit('remove', index)
+      },
+      settlement() {
+        this.$router.push('/settlement')
       }
     }
   }
@@ -270,5 +282,12 @@
     color: #ff6700;
     font-size: 24px;
     margin-right: 5px;
+  }
+  .point {
+    font-size: 13px;
+    color: #999;
+    border-top: 1px solid #f6f6f6;
+    padding: 12px 17px;
+    text-align: left;
   }
 </style>

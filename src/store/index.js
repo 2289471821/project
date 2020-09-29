@@ -7,7 +7,11 @@ const store = new Vuex.Store({
   state: {
     isShareshow: false,
     isProductshow: false,
-    cartList: []
+    isServiceShow: false,
+    cartList: [],
+    token: localStorage.getItem('token') ? localStorage.getItem('token') : null,
+    username: null,
+    profilephoto: null
   },
   mutations: {
     changeShareshow(state) {
@@ -15,6 +19,9 @@ const store = new Vuex.Store({
     },
     changeProductshow(state) {
       state.isProductshow = !state.isProductshow
+    },
+    changeServiceshow(state) {
+      state.isServiceShow = !state.isServiceShow
     },
     addCart(state, payload) {
       let oldProduct = null;
@@ -46,7 +53,22 @@ const store = new Vuex.Store({
     },
     checked(state, index) {
       state.cartList[index].checked = !state.cartList[index].checked;
-    }
+    },
+
+    setUsername(state, username) {
+      state.username = username;
+    },
+    setProfilephoto(state, profilephoto) {
+      state.profilephoto = profilephoto;
+    },
+    setToken(state, token) {
+      state.token = token;
+      sessionStorage.token = token;
+    },
+    delToken (state) {
+			state.token = '';
+			sessionStorage.removeItem("token");
+		}
   },
   actions: {
 

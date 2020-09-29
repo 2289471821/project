@@ -10,91 +10,53 @@
       :detailed_info_items="detailed_info_items"/>
     <detail-property :property="property"/>
     <recommend-line/>
-    <detail-option/>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>12</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
-    <div>13</div>
+    <detail-option :name="name"/>
+    <detail-service/>
+    <h2>内容1</h2>
+    <h2>内容2</h2>
+    <h2>内容3</h2>
+    <h2>内容4</h2>
+    <h2>内容5</h2>
+    <h2>内容6</h2>
+    <h2>内容7</h2>
+    <h2>内容8</h2>
+    <h2>内容9</h2>
+    <h2>内容10</h2>
+    <h2>内容11</h2>
+    <h2>内容12</h2>
+    <h2>内容13</h2>
+    <h2>内容14</h2>
+    <h2>内容15</h2>
+    <h2>内容16</h2>
+    <h2>内容17</h2>
+    <h2>内容18</h2>
+    <h2>内容19</h2>
+    <h2>内容20</h2>
+    <h2>内容21</h2>
+    <h2>内容22</h2>
+    <h2>内容23</h2>
+    <h2>内容24</h2>
+    <h2>内容25</h2>
+    <h2>内容26</h2>
+    <h2>内容27</h2>
+    <h2>内容28</h2>
+    <h2>内容29</h2>
+    <h2>内容30</h2>
+    <h2>内容31</h2>
+    <h2>内容32</h2>
+    <h2>内容33</h2>
+    <h2>内容34</h2>
+    <h2>内容35</h2>
+    <h2>内容36</h2>
+    <h2>内容37</h2>
+    <h2>内容38</h2>
+    <h2>内容39</h2>
+    <h2>内容40</h2>
     <detail-tab-bar @addCart="addToCart"/>
     <back-top/>
-    <detail-choose :spec="spec" :name="name"/>
+    <!-- <detail-choose :spec="spec" :name="name"/> -->
     <detail-share/>
+    <detail-service-pop/>
   </div>
 </template>
 
@@ -107,8 +69,10 @@
   import DetailContent from './childpos/DetailContent'
   import DetailProperty from './childpos/DetailProperty'
   import RecommendLine from '@/views/home/childpos/homeconent/recommend/childpos/RecommendLine'
-  import DetailChoose from './childpos/DetailChoose'
+  // import DetailChoose from './childpos/DetailChoose'
   import DetailOption from './childpos/DetailOption'
+  import DetailService from './childpos/DetailService'
+  import DetailServicePop from './childpos/DetailServicePop'
 
   import { getDetaildata } from '@/network/detail'
 
@@ -123,8 +87,10 @@
       DetailContent,
       DetailProperty,
       RecommendLine,
-      DetailChoose,
-      DetailOption
+      // DetailChoose,
+      DetailOption,
+      DetailService,
+      DetailServicePop
     },
     data() {
       return {
@@ -169,7 +135,7 @@
         this.simple_img = res.data.simple_img
         this.detailed_img = JSON.parse(res.data.detailed_img).swiper
         this.property = JSON.parse(res.data.property).property
-        this.spec = JSON.parse(res.data.spec)
+        this.spec = JSON.parse(res.data.spec).spec
         this.recommend = res.data.recommend
       }).catch(error => {
         console.log(error);

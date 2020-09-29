@@ -18,6 +18,15 @@ const Cart = () => import('@/views/cart/Cart')
 const Profile = () => import('@/views/profile/Profile')
 const Detail = () => import('@/views/detail/Detail')
 
+const Login = () => import('@/views/Login')
+const Settlement = () => import('@/views/Settlement')
+
+
+// 页面刷新时，重新赋值token
+// if (sessionStorage.token) {
+//   store.commit('setToken', sessionStorage.token);
+// }  
+
 const routes = [
   { path: '', redirect: '/home' },
   {
@@ -38,12 +47,46 @@ const routes = [
   { path: '/planet', component: Planet },
   { path: '/cart', component: Cart },
   { path: '/profile', component: Profile },
-  { path: '/detail', component: Detail }
+  { path: '/detail', component: Detail },
+  { path: '/login', component: Login },
+  { 
+    path: '/settlement', 
+    component: Settlement,
+    meta: { requiresAuth: true }
+    // beforeEnter: (to, from, next) => {
+    //   console.log('settlement');
+    //   let token = sessionStorage.token;
+    //   console.log(token);
+    //   if(token == 'null' || token == '') {
+    //     alert('您还没有登录，请登录后结算')
+    //     next({ path: '/login'});
+    //   }else {
+    //     next();
+    //   }
+    // }
+  }
 ]
 
 const router = new VueRouter({
   routes,
   mode: 'history'
+})
+
+router.beforeEach((to, from, next) => {
+  console.log('全局前置守卫');
+  //这里的requiresAuth为路由中定义的 meta:{requiresAuth:true}，意思为：该路由添加该字段，表示进入该路由需要登陆的
+  if(to.matched.some(r => r.meta.requiresAuth)) {
+    const token = sessionStorage.token;     
+    if(token) {
+      next();
+    }else {
+      alert('您还没有登录，请登录后结算~~~')
+      next({path: '/login'})
+    }
+  }
+  else {
+    next();
+  }
 })
 
 export default router

@@ -18,7 +18,7 @@
     <tab-bar-item path="/cart">
       <img slot="item-icon" src="@/assets/img/tabbar/shopcart.svg" alt="">
       <img slot="item-icon-active" src="@/assets/img/tabbar/shopcart_active.svg" alt="">
-      <div slot="item-text">购物车</div>
+      <div slot="item-text">购物车<em class="bubble" v-show="$store.state.cartList.length">{{totalNumber}}</em></div>
     </tab-bar-item>
     <tab-bar-item path="/profile">
       <img slot="item-icon" src="@/assets/img/tabbar/profile.svg" alt="">
@@ -37,10 +37,33 @@
     components: {
       TabBar,
       TabBarItem
+    },
+    computed: {
+      totalNumber() {
+        return this.$store.state.cartList.filter(item => {
+          return item.checked
+        }).reduce((preValue, item) => {
+          return preValue + item.count
+        }, 0)
+      }
     }
   }
 </script>
 
 <style scoped>
-
+  .bubble {
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    position: absolute;
+    top: 5px;
+    left: 70%;
+    transform: translate3d(6px,-20%,0);
+    background: linear-gradient(45deg,#ff7d00,#ff5934);
+    color: #fff;
+    border-radius: 20px;
+    text-align: center;
+    overflow: hidden;
+    z-index: 120;
+  }
 </style>

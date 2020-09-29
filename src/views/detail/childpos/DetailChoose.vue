@@ -6,19 +6,19 @@
         <i class="choose-close" @click="closeClick"></i>
       </div>
       <div class="choose-header">
-        <img :src="spec.星空蓝[0].图片" alt="">
+        <img :src="spec[num].img" alt="">
         <div class="selected">
-          <div class="selected-price">{{spec.星空蓝[1].现价 | getSymbol}}</div>
-          <div class="selected-release">{{name}} {{spec.星空蓝[1].版本}} 星空蓝</div>
+          <div class="selected-price">{{spec[num].type[num].new_price | getSymbol}}</div>
+          <div class="selected-release">{{name}} {{spec[num].type[num].version}} {{spec[num].color}}</div>
         </div>
       </div>
       <div>
         <div class="option">
           <div class="option-title">版本</div>
           <div>
-            <div >{{spec.星空蓝[1].版本}}</div>
-            <div>{{spec.星空蓝[2].版本}}</div>
-            <div>{{spec.星空蓝[3].版本}}</div>
+            <div >{{spec[num].type[num].version}}</div>
+            <div>{{spec[num].type[1].version}}</div>
+            <div>{{spec[num].type[2].version}}</div>
           </div>
         </div>
         <div class="option">
@@ -48,12 +48,13 @@
   export default {
     name: 'DetailChoose',
     props: {
-      spec: Object,
+      spec: Array,
       name: String,
     },
     data() {
       return {
-        counter: 1
+        counter: 1,
+        num: 0
       }
     },
     filters: {

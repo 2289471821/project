@@ -1,8 +1,12 @@
 <template>
 <div>
   <header class="hd">
-    <div class="user">
-
+    <div class="user" @click="login">
+      <div class="img">
+        <img :src="this.$store.state.profilephoto" alt="" v-if="this.$store.state.profilephoto">
+        <img src="~@/assets/img/profile/user.png" alt="" v-else>
+      </div>
+      <div class="name">{{this.$store.state.username ? this.$store.state.username : `登录/注册`}}</div>
     </div>
   </header>
   <div class="b1">
@@ -20,7 +24,7 @@
       <div class="item-icon">
         <img src="~@/assets/img/profile/member.png" alt="">
       </div>
-      <div class="item-text">
+      <div class="item-text item-text-line">
         <div>会员中心</div>
         <div>
           <img src="~@/assets/img/profile/right_arrows.png" alt="">
@@ -45,7 +49,7 @@
       <div class="item-icon">
         <img src="~@/assets/img/profile/service.png" alt="">
       </div>
-      <div class="item-text">
+      <div class="item-text item-text-line">
         <div>服务中心</div>
         <div>
           <img src="~@/assets/img/profile/right_arrows.png" alt="">
@@ -70,7 +74,7 @@
       <div class="item-icon">
         <img src="~@/assets/img/profile/fcode.png" alt="">
       </div>
-      <div class="item-text">
+      <div class="item-text item-text-line">
         <div>我的F码</div>
         <div>
           <img src="~@/assets/img/profile/right_arrows.png" alt="">
@@ -110,7 +114,12 @@
 
 <script>
   export default {
-    name: 'Profile'
+    name: 'Profile',
+    methods: {
+      login() {
+        this.$router.push('/login');
+      }
+    }
   }
 </script>
 
@@ -120,10 +129,31 @@
     background-position: center;
     background-color: #f37d0f;
     background-size: auto 100%;
-    padding: 15px 0;
+    padding: 20px 0;
   }
   .user {
+    display: flex;
+    align-items: center;
+  }
+  .img {
+    margin: 0 9px 0 18px;
+    width: 50px;
     height: 50px;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-radius: 100%;
+    border: 3px solid hsla(0,0%,100%,.4);
+    text-align: center;
+  }
+  .img img {
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+  }
+  .name {
+    color: #fff;
+    font-size: 14px;
+    text-align: left;
   }
   .b1 {
     display: flex;
@@ -177,6 +207,9 @@
     display: flex;
     justify-content: space-between;
     justify-self: center;
+  }
+  .item-text-line {
+    border-bottom: 1px solid rgba(0,0,0,.15);
   }
   .item-text img {
     width: 18px;
